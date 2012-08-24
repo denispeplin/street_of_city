@@ -2,7 +2,7 @@ class DistrictsController < ApplicationController
   # GET /districts
   # GET /districts.json
   def index
-    @districts = District.all
+    @districts = District.includes(:city).all
 
     respond_to do |format|
       format.html # index.html.erb
