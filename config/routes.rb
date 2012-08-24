@@ -1,4 +1,10 @@
 StreetOfCity::Application.routes.draw do
+  resources :streets
+
+  resources :districts
+
+  resources :cities
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,7 @@
+<%= show_for @district do |s| %>
+  <%= s.attribute :name %>
+  <%= s.association :city %>
+<% end %>
+
+<%= link_to 'Edit', edit_district_path(@district) %> |
+<%= link_to 'Back', districts_path %>
