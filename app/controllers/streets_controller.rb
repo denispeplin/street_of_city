@@ -2,7 +2,16 @@ class StreetsController < ApplicationController
   # GET /streets
   # GET /streets.json
   def index
-    @streets = Street.includes(:district, :city).where(district_id: params[:district_id]).all
+    @streets = Street.includes(:district, :city)
+    
+    if params[:district_id]
+      @streets = @streets.where(district_id: params[:district_id])
+    elsif params[:city_id]
+      @streets = @streets.belongs_to_city(params[:city_id])
+    end
+    
+    @streets = @streets.all
+      
 
     respond_to do |format|
       format.html # index.html.erb
