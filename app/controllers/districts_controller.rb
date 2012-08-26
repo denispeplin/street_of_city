@@ -2,7 +2,11 @@ class DistrictsController < ApplicationController
   # GET /districts
   # GET /districts.json
   def index
-    @districts = District.includes(:city).where(city_id: params[:city_id]).all
+    @districts = District.includes(:city)
+    
+    @districts = @districts.where(city_id: params[:city_id]) if params[:city_id]
+    
+    @districts.all
 
     respond_to do |format|
       format.html # index.html.erb
