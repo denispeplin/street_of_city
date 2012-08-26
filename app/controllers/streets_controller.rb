@@ -2,7 +2,7 @@ class StreetsController < ApplicationController
   # GET /streets
   # GET /streets.json
   def index
-    @streets = Street.includes(:district, :city).all
+    @streets = Street.includes(:district, :city).where(district_id: params[:district_id]).all
 
     respond_to do |format|
       format.html # index.html.erb
