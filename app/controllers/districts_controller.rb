@@ -24,7 +24,7 @@ class DistrictsController < ApplicationController
   # GET /districts/new
   # GET /districts/new.json
   def new
-    @district = District.new
+    @district = District.new(city_id: params[:city_id])
 
     respond_to do |format|
       format.html # new.html.erb

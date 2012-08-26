@@ -24,7 +24,7 @@ class StreetsController < ApplicationController
   # GET /streets/new
   # GET /streets/new.json
   def new
-    @street = Street.new
+    @street = Street.new(district_id: params[:district_id])
 
     respond_to do |format|
       format.html # new.html.erb
